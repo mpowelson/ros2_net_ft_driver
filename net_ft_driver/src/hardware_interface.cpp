@@ -108,10 +108,8 @@ NetFtHardwareInterface::on_activate(const rclcpp_lifecycle::State& /*previous_st
         return hardware_interface::CallbackReturn::ERROR;
       }
     } else {
-      if (!driver_->clear_bias()) {
-        RCLCPP_FATAL(kLogger, "Couldn't clear sensor software bias!");
-        return hardware_interface::CallbackReturn::ERROR;
-      }
+      // Skip bias clearing when hardware biasing is disabled to avoid HTTP connections
+      RCLCPP_INFO(kLogger, "Skipping bias clearing (hardware biasing disabled)");
     }
     std::unique_ptr<SensorData> data = driver_->receive_data();
     if (data) {
