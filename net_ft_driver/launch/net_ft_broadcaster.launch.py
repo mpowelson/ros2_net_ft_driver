@@ -83,7 +83,7 @@ def launch_setup(context, *args, **kwargs):
     control_node = launch_ros.actions.Node(
         package="controller_manager",
         executable="ros2_control_node",
-        parameters=[robot_description_param, ft_controller],
+        parameters=[ft_controller],
     )
 
     robot_state_publisher_node = launch_ros.actions.Node(
