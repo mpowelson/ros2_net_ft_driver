@@ -38,7 +38,7 @@
 #include <sstream>
 #include <string>
 
-constexpr int kPort = 49151;
+constexpr int kPort = 49153;
 
 constexpr uint16_t kHeader = 0x1234;
 constexpr uint16_t kCommandSize = 8;
